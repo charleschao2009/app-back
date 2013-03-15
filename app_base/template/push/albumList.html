@@ -1,0 +1,61 @@
+<include:file="../common/header.html">
+<script language="JavaScript" src="./static/js/jquery.js"></script>
+
+<include:file="../common/nav.html">
+	<div class="title_info">
+		<span class='title_name'>剧更新列表</span>
+		<span class='desc'>(用户收藏且有更新的剧)</span>
+	</div>
+
+<table border="0">
+	<tr class="head">
+		<th>剧VID</th>
+		<th>剧名</th>
+		<th>当前集</th>
+		<th>更新的集</th>
+		<th>收藏的用户数</th>
+	</tr>
+	<foreach name="update_list" var="value" key="key">
+		<if $key%2 == 0>
+			<tr class="even">
+		<else>
+			<tr class="odd">
+		</if>
+		<td>[$value.vid]</td>
+		<td>[$value.name]</td>
+		<td>[$value.cur_num]</td>
+		<td>
+			<foreach name="value.update" var="value_up" key="key_up">
+				<a href="[$value_up.url]" target="_blank">[$value_up.episode_id]</a>,
+			</foreach>
+		</td>
+		<td>[$value.count]</td>
+		</tr>
+	</foreach>
+	<tr class="bottom"><td colspan="5"></td></tr>
+</table>
+<a class="big_button animation" href="" id="sending" target="_self">发送push</a>
+<div style="clear:both" id="msg_flag"></div>
+
+<script language="Javascript">
+	$(document).ready(function() {
+		$('#sending').click(function(){
+			_this = $(this);
+			if(_this.hasClass("sending")) return;
+			$.ajax({
+				url:'./?m=push&c=update_send_push',
+				beforeSend:function(){
+					_this.toggleClass("sending").html("&nbsp;&nbsp;<img src='./static/images/loading.gif'/>&nbsp;&nbsp;");
+				},
+				success:function(data){
+					$('<div class="msg">'+data+'</div>').insertAfter($('#msg_flag')).slideDown();
+					_this.toggleClass("sending").html("发送push");
+				}
+			});
+			return false;
+		});
+	});
+</script>
+
+<include:file="../common/footer.html">
+

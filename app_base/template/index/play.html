@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+
+    <title>ios播放器</title>
+    <style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color:#000;
+	width:100%; 
+	height:100%;	
+	position:relative;
+}
+.player{ 
+	width:1024px; 
+	height:768px;
+	margin:0 auto;
+	text-align:center;
+	overflow:hidden;	
+}
+.loading{
+	display:block;
+	width:128px;
+	height:128px;
+	background-image: url(static/images/play_loading2.gif);
+	background-color: #000000;
+	position:absolute;
+	left:449px;
+	top:320px;
+	border-radius:10px;
+}
+-->
+</style>
+</head>
+<body>
+    <div id="player" class="player">
+	</div>
+	<i class="loading"></i>
+<script type="text/javascript" src="http://vres.61.com/v2/js/common/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="http://vres.61.com/js/swfobject.js"></script>
+<script type="text/javascript" src="http://vres.61.com/v2/js/common/player.js"></script>
+<script>
+player('[$play_info.from_type]', '[$play_info.vid]', 'player', "1024", "748");
+var next_page='[$play_info.next_page]';
+var next_vid = '[$play_info.next_vid]';
+function playend(){
+	if(next_vid){
+		var link = 'obj:upHistory:'+'[$play_info.ConentID]'+':'+'[$play_info.next_vid]';
+		next_page = next_page + '&objparam=' + link;
+		location.href=next_page;
+	}
+}
+if(isNaN('[$play_info.vid]') && ('[$play_info.from_type]' == 'tudou' || '[$play_info.from_type]' == 'js_tudou')){
+	$('.loading').hide();
+}
+
+
+function canplay(){
+	$('.loading').hide();
+}
+</script>
+</body>
+
+</html>

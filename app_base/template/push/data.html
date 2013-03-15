@@ -1,0 +1,115 @@
+<include:file="../common/header.html">
+<style type="text/css">
+	.info_box{float:left;margin:20px;width:160px;height:100px;padding:10px;border:1px solid #ddd;background:#f6f6f6;color:#666;font-size:13px;}
+	.info_box .line{border-bottom:1px solid #aaa;margin:5px;}
+	.info_box .title{text-align:center;font-weight:800;font-size:16px;}
+	.info_box .field{margin-left:20px;}
+	.info_box .field .value{font-size:20px;color:#f96;padding-left:10px;}
+</style>
+
+	<div class="main">
+		<div class="top">
+			<div class="top_title">淘米视频APP</div>
+		</div>
+		<!-- end top -->
+		<include:file="../common/info_header.html">
+		<!-- end nav -->
+		<div class="content">
+	<div class="title_info">
+		<span class='title_name'>数据统计</span>
+		<span class='desc'>(相关数据分析对比)</span>
+	</div>
+	<div class="info_box">
+		<div class="title">用户数</div>
+		<div class="line"></div>
+		<div class="field">
+			<span class="tag">当前总数:</span>
+			<span class="value">1026</span>
+		</div>
+		<div class="field">
+			<span class="tag">卸载历史:</span>
+			<span class="value">14</span>
+		</div>
+	</div>
+	<div class="info_box">
+		<div class="title">收藏剧数</div>
+		<div class="line"></div>
+		<div class="field">
+			<span class="tag">昨日:</span>
+			<span class="value">885</span>
+		</div>
+		<div class="field">
+			<span class="tag">今日:</span>
+			<span class="value">887</span>
+		</div>
+	</div>
+	<div class="info_box">
+		<div class="title">启动次数</div>
+		<div class="line"></div>
+		<div class="field">
+			<span class="tag">昨日:</span>
+			<span class="value">100</span>
+		</div>
+		<div class="field">
+			<span class="tag">今日:</span>
+			<span class="value">14</span>
+		</div>
+	</div>
+	<div class="info_box">
+		<div class="title">活跃用户</div>
+		<div class="line"></div>
+		<div class="field">
+			<span class="tag">昨日:</span>
+			<span class="value">88</span>
+		</div>
+		<div class="field">
+			<span class="tag">今日:</span>
+			<span class="value">125</span>
+		</div>
+	</div>
+
+	<div class="title_info">
+		<span class='title_name'>收藏剧top100</span>
+		<span class='desc'>(被收藏的top100的剧)</span>
+	</div>
+
+
+	<table border="0">
+		<tr class="head">
+			<th>剧VID</th>
+			<th width="50%">剧名</th>
+			<th>收藏的用户数</th>
+		</tr>
+		
+		<foreach name="favourite_list" var="value" key="key">
+			<if $key%2 == 0>
+				<tr class="even">
+			<else>
+				<tr class="odd">
+			</if>
+			<td>[$value.vid]</td>
+			<td>[$value.send_time]</td>
+			<td>[$value.count]</td>
+			</tr>
+		</foreach>
+		<tr class="bottom"><td colspan="4"></td></tr>
+	</table>
+	<div class="page-list">
+		<ul>
+		<!-- 共[$page_list.total_page]页([$page_list.total_num]条数据)
+		  <li><a href="?m=push&c=history&check=[$in.check]&page=1">首页</a></li> -->
+		  <li><a href="?m=push&c=data&page=[$page_list.pre_page]">←</a></li>
+			<foreach name="page_list.list" var="value" key="key">
+				<if $value == $page_list.current_page>
+					<li class="this"><a href="#">[$value]</a></li>
+				<else>
+					<li><a href="?m=push&c=data&page=[$value]">[$value]</a></li>
+				</if>
+			</foreach>
+		  <li><a href="?m=push&c=data&page=[$page_list.next_page]">→</a></li>
+		  <!-- <li><a href="?m=push&c=history&check=[$in.check]&page=[$page_list.total_page]">尾页</a></li> -->
+		</ul>
+	</div>
+	<div style="clear:both"></div>
+<include:file="../common/footer.html">
+

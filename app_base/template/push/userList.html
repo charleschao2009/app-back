@@ -1,0 +1,54 @@
+<include:file="../common/header.html">
+	<div class="main">
+		<div class="top">
+			<div class="top_title">淘米视频APP</div>
+		</div>
+		<!-- end top -->
+		<include:file="../common/info_header.html">
+		<!-- end nav -->
+		<div class="content">
+	<div class="title_info">
+		<span class='title_name'>用户列表</span>
+		<span class='desc'>(所有用户)</span>
+	</div>
+
+
+	<table border="0">
+		<tr class="head">
+			<th>id</th>
+			<th>version</th>
+			<th width="65%" >device_token</th>
+		</tr>
+		
+		<foreach name="user_list" var="value" key="key">
+			<if $key%2 == 0>
+				<tr class="even">
+			<else>
+				<tr class="odd">
+			</if>
+			<td>[$value.id]</td>
+			<td>[$value.version]</td>
+			<td style="text-align:left;">[$value.device_token]</td>
+			</tr>
+		</foreach>
+		<tr class="bottom"><td colspan="4"></td></tr>
+	</table>
+	<div class="page-list">
+		<ul>
+		<!-- 共[$page_list.total_page]页([$page_list.total_num]条数据)
+		  <li><a href="?m=push&c=history&check=[$in.check]&page=1">首页</a></li> -->
+		  <li><a href="?m=push&c=data&page=[$page_list.pre_page]">←</a></li>
+			<foreach name="page_list.list" var="value" key="key">
+				<if $value == $page_list.current_page>
+					<li class="this"><a href="#">[$value]</a></li>
+				<else>
+					<li><a href="?m=push&c=data&page=[$value]">[$value]</a></li>
+				</if>
+			</foreach>
+		  <li><a href="?m=push&c=data&page=[$page_list.next_page]">→</a></li>
+		  <!-- <li><a href="?m=push&c=history&check=[$in.check]&page=[$page_list.total_page]">尾页</a></li> -->
+		</ul>
+	</div>
+	<div style="clear:both"></div>
+<include:file="../common/footer.html">
+

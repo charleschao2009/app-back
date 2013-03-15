@@ -1,0 +1,73 @@
+<include:file="../common/header.html">
+<script language="JavaScript" src="./static/js/jquery.js"></script>
+<script language="JavaScript" src="./static/js/jquery.form.js"></script>
+	<div class="main">
+		<div class="top">
+			<div class="top_title">淘米视频APP</div>
+		</div>
+		<!-- end top -->
+		<include:file="../common/info_header.html">
+		<!-- end nav -->
+		<div class="content">
+
+
+	<div class="title_info">
+		<span class='title_name'>手动发送push</span>
+		<span class='desc'>(自定义内容，以及根据type自定义动作)</span>
+	</div>
+	<div class="form">
+		<form method="POST" id="sendForm" action="?m=push&c=send_submit">
+			<div><span>消息tips：</span><input type="text" name="message"/></div>
+			<div><span>消息类型：</span>
+				<input id="message_type" type="text" name="type" value="default" hidden/>
+				<div class="checkedby">
+					<a href="javascript:void(0);" msg_type="default" class="this">默认消息</a>
+					<a href="javascript:void(0);" msg_type="gourl">跳转到url</a>
+					<a href="javascript:void(0);" msg_type="goapp">app某个地方</a>
+					<i class="info">普通消息，value值不用填写；点击后跳转到主页面</i>
+					<div style="clear:both"></div>
+				</div>				
+			</div>
+			<div class="value"  style="display:none;"><span>value值：</span><input type="text" name="value"/></div>
+			<div><span>&nbsp;</span>
+				<input type="reset" value="重置" class="button animation" />
+				<a href="javascript:void(0)" id="sending" class="button animation">提交</a>
+			</div>
+			<div style="clear:both" id="msg_flag"></div>
+		</form>
+	</div>
+
+	<script> 
+		$(document).ready(function() {
+			$('#sending').click(function(){
+				_this = $(this);
+				if(_this.hasClass("sending")) return;
+				_this.toggleClass("sending").html("&nbsp;&nbsp;<img src='./static/images/loading.gif'/>&nbsp;&nbsp;");
+				$('#sendForm').ajaxSubmit(function(data) {
+					$('<div class="msg">'+data+'</div>').insertAfter($('#msg_flag')).slideDown();
+					_this.toggleClass("sending").html("提交");
+				});
+				return false;
+			});
+
+			$('#sendForm .checkedby a').bind('click',function(){
+				var this_value = $(this).attr("msg_type");
+				if (this_value != "default"){					
+					$(".form .value").slideDown();
+				}else{
+					$(".form .value").slideToggle();
+				}
+				$('#sendForm .checkedby .this').removeClass('this');
+				$(this).toggleClass("this");
+				$("#message_type").val(this_value);
+				
+				tips_default	= "普通消息，value值不用填写；点击后跳转到主页面";
+				tips_gourl		= "弹出alert，点击后跳转到url，value值填写为跳转到的地址";
+				tips_goapp		= "跳转到程序中某个地方";
+				var this_tips	= eval('tips_'+this_value);
+				$("#sendForm .info").html(this_tips);
+			});
+		}); 
+	</script> 
+<include:file="../common/footer.html">
+

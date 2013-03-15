@@ -1,0 +1,143 @@
+*{padding:0px;margin:0px;}
+body{background:#e6e6e6;font-family:Calibri,"微软雅黑";font-size:14px;color:#666;}
+
+a{text-decoration:none;color:#007FFF;}
+a:hover{color:#06c;border-bottom:1px solid #06C;}
+::selection {background:#D9EFF7;}
+::-moz-selection {background:#D9EFF7;}
+::-webkit-selection {background:#D9EFF7;}
+.animation{
+	-webkit-transition: all .25s;
+	-moz-transition: all .25s;
+	-o-transition: all .25s;
+	transition: all .25s;
+}
+.fadein{
+	-webkit-transition: all .2s;
+	-moz-transition: all .2s;
+	-o-transition: all .2s;
+	transition: all .2s;
+}
+::-webkit-scrollbar{width: 10px;height: 5px;}
+::-webkit-scrollbar-track-piece{background-color: #ffffff;-webkit-border-radius: 5px;}
+::-webkit-scrollbar-thumb:vertical{height: 5px;background-color: #aaa;-webkit-border-radius: 5px;}
+::-webkit-scrollbar-thumb:horizontal{width: 10px;background-color: #aaa;-webkit-border-radius: 5px;}
+
+
+/*--------------------------------*/
+.main{width:958px;margin:0 auto;background:#fff;margin-bottom:40px;margin-top:30px;
+	box-shadow:0 10px 80px #aaa;border:1px solid #ddd\9;}
+.top{height:100px;background:#fff;}
+.top .top_title{padding:30px;padding-left:50px;color:#000;font-size:30px;}
+.nav{background:#0F82F5;font-size:14px;padding-left:50px;}
+	.nav a{display:block;
+		letter-spacing:1px;
+		float:left;text-decoration:none;
+		color:#fff;
+		padding:0px 15px 0 15px;
+		line-height:35px;height:35px;
+		text-align:center;
+		/* border-left:1px solid #6dd;border-right:1px solid #6dd; */
+		margin-right:-1px;
+		-webkit-transition: all .2s;
+		-moz-transition: all .2s;
+		-o-transition: all .2s;
+		transition: all .2s;
+	}
+	.nav a:hover,.nav a.this{color:#fff;text-decoration:none;border-bottom:none;background:#1160EB;}
+	.nav span{display:block;float:left;color:#fff;line-height:35px;height:35px;}
+
+.content{height:auto;padding:20px;padding-left:40px;background:#fff;}
+	.content .title_info{margin:10px 0 10px 10px;padding-bottom:5px;border-bottom:1px solid #eee;width:870px;}
+	.content .title_info .title_name{color:#111;font-size:18px;letter-spacing:1px;
+	padding:3px 1em 4px 1em;font-weight:400;border-bottom:3px solid #5AA3EF;}
+	.content .title_info .desc{color:#ccc;font-size:13px;padding-left:10px;font-weight:400;font-size:14px;}
+
+/*--------------form 表单--------------*/
+.content .form{padding:10px;color:#666;border-bottom:1px dashed #bbb;margin-top:10px;margin-left:10px;}
+	.form .line{margin:0px;height:1px;width:100%;border-bottom:1px solid #ddd;margin-bottom:10px;margin-top:-1px;_margin-top:-21px;}
+	.form div{margin-bottom:10px;color: #888;}
+	.form div span{display:block;width:120px;float:left;padding:5px;text-align:right;color: #222;}
+	.form div b{width:400px;display:block;float:left;line-height:28px;color: #555;font-style: normal;color: #446;}
+	.form div input,.form div select{width:300px;padding:5px;font-weight:800;border:1px solid #ccc;color: #888;font-family:"微软雅黑";}
+	.form .info{font-size:12px;color:#888;padding-left:10px;font-style:normal;line-height:30px;}
+	.form div input:hover,.form div select:hover{border: 1px solid #999;}
+	.form div .button{margin-top: 10px;background:#ddd;color:#555;padding:0.4em  1.5em;width:auto;margin-right:20px;border:none;}
+	.form div .button:hover{cursor:pointer;background:#80DBFF;color:#fff;border:none;}
+	.form div .sending{background:#80DBFF;color:#222;}
+	.form div .sending:hover{background:#80DBFF;color:#222;}
+
+	.form .msg{display:none;margin-top: 10px;margin-left: 130px;width:450px;padding:5px 20px;
+	font-style: normal;border-left:5px solid #aaa;
+	background:#f6f6f6;font-size:14px;word-break:break-all;color:#888;}
+	
+
+	/*--------------分段选择--------------*/
+	.checkedby{margin:10px;}
+	.checkedby a{
+		float:left;
+		padding:4px 12px;
+		line-height:20px;
+		color:#333;
+		background:#eee;
+		border-right:1px solid #eee;
+		text-decoration:none;
+		margin-left:-1px;
+		border-right:1px solid #ddd;border-left:1px solid #ddd;
+		-webkit-transition: all .3s;
+		-moz-transition: all .3s;
+		-o-transition: all .3s;
+		transition: all .3s;
+	}
+	.checkedby a:hover{background-color:#222;color:#fff;border:none;
+	margin-left:-1px;border-right:1px solid #333;border-left:1px solid #333;}
+	.checkedby a.this{background-color:#007fff;color:#fff;
+	border-right:1px solid #007fff;border-left:1px solid #007fff;}
+	.checkedby a.this:hover{border-right:1px solid #007fff;border-left:1px solid #007fff;}
+
+/*--------------table--------------*/
+table{width:870px;border:1px solid #ddd;border-collapse:collapse;margin-left:10px;font-size:13px;}
+table a{display:inline-block;margin-left:8px;border-bottom:1px solid #fff;}
+table td{
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #eee; 
+	padding: 5px 1em;
+	color: #666;
+	text-align:center;
+	word-break:break-all; 
+}
+table tr:hover{background:#E8F8FD;}
+table caption,table th{font-size:14px;color:#111;padding: 8px 1em;background:#F4F4F4;letter-spacing:1px;text-align:center;border:1px solid #ddd;font-weight:400;}
+table .tr{font-size:12px;}
+table .bottom td{padding:0px;border-bottom:1px solid #ddd;}
+table .odd {background: #F9F9F9;} 
+table .even {background:#fff;} 
+
+fieldset{ margin-top:10px; border:solid 1px #9ED2F0;padding:10px;}
+fieldset legend { padding:3px 20px; color:#FFF; background:#5FB5D9/*#214FA3*/; font-size:15px;}
+fieldset,fieldset legend {-moz-border-radius:4px; -webkit-border-radius: 4px; border-radius:4px; }
+fieldset .hr{height:5px;margin:5px;border-top:1px dashed #ccf;}
+fieldset .contents{color:#555;font-size:14px;padding:20px;}
+
+/*--------------脚部frame--------------*/
+.foot{background:#d6d6d6;padding:20px 0 25px;border:1px solid #ccc;}
+.foot #my{text-align:center;font-size:13px;color:#666;}
+.foot a{text-decoration:none;color:#444;margin-left:10px;font-size:13px;}
+.foot a:hover{color:#419EC9;border-bottom:2px solid #419EC9;}
+
+
+
+.page-list{margin:20px 18px;float:right;}
+.page-list ul{display:inline-block;*display:inline;*zoom:1;}
+.page-list ul li{display:inline;}
+.page-list  a{
+	text-decoration:none;margin-left:5px;		
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+.page-list  a,.pagination  span{float:left;padding:4px 12px;
+line-height:20px;color:#333;background-color:#eee;}
+.page-list a:hover{background-color:#222;color:#fff;border:none;}
+.page-list .this a{background-color:#007fff;color:#fff;}

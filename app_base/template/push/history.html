@@ -1,0 +1,75 @@
+<?php 
+function check($nav){
+	if ($nav==$_GET['check'] )	echo 'class="this"';
+}?>
+
+<include:file="../common/header.html">
+<script language="JavaScript" src="./static/js/jquery.js"></script>
+<script language="JavaScript" src="./static/js/jquery.form.js"></script>
+	<div class="main">
+		<div class="top">
+			<div class="top_title">淘米视频APP</div>
+		</div>
+		<!-- end top -->
+		<include:file="../common/info_header.html">
+		<!-- end nav -->
+		<div class="content">
+
+	<div class="title_info">
+		<span class='title_name'>历史记录</span>
+		<span class='desc'>(包括剧更新以及手动push的发送历史)</span>
+	</div>
+
+	<div class="checkedby">
+		<a href="?m=push&c=history&check=all" <? check('');?><? check('all');?>>全部</a>
+		<a href="?m=push&c=history&check=album" <? check('album');?>>更新剧</a>
+		<a href="?m=push&c=history&check=default" <? check('default');?>>默认</a>
+		<a href="?m=push&c=history&check=gourl" <? check('gourl');?>>跳转url</a>
+		<a href="?m=push&c=history&check=goapp" <? check('goapp');?>>跳转app</a>
+
+		<a href="?m=push&c=history&check=del" <? check('del');?>>已删除</a>
+		<div style="clear:both"></div>
+	</div>
+
+	<table border="0">
+		<tr class="head">
+			<th width="8%">类型</th>
+			<th width="15%">发送时间</th>
+			<th>发送内容</th>
+			<th width="15%">操作</th>
+		</tr>
+		
+		<foreach name="history_list" var="value" key="key">
+			<if $key%2 == 0>
+				<tr class="even">
+			<else>
+				<tr class="odd">
+			</if>
+			<td>[$value.send_type]</td>
+			<td>[$value.send_time]</td>
+			<td>[$value.content]</td>
+			<td><a href="?m=push&c=history_del&id=[$value.id]&check=[$in.check]&page=[$page_list.current_page]">删除</a><a href="#">重新发送</a></td>
+			</tr>
+		</foreach>
+		<tr class="bottom"><td colspan="4"></td></tr>
+	</table>
+	<div class="page-list">
+		<ul>
+		<!-- 共[$page_list.total_page]页([$page_list.total_num]条数据)
+		  <li><a href="?m=push&c=history&check=[$in.check]&page=1">首页</a></li> -->
+		  <li><a href="?m=push&c=history&check=[$in.check]&page=[$page_list.pre_page]">←</a></li>
+			<foreach name="page_list.list" var="value" key="key">
+				<if $value == $page_list.current_page>
+					<li class="this"><a href="#">[$value]</a></li>
+				<else>
+					<li><a href="?m=push&c=history&check=[$in.check]&page=[$value]">[$value]</a></li>
+				</if>
+			</foreach>
+		  <li><a href="?m=push&c=history&check=[$in.check]&page=[$page_list.next_page]">→</a></li>
+		  <!-- <li><a href="?m=push&c=history&check=[$in.check]&page=[$page_list.total_page]">尾页</a></li> -->
+		</ul>
+	</div>
+	<div style="clear:both"></div>
+
+<include:file="../common/footer.html">
+

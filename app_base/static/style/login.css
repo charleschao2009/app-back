@@ -1,0 +1,119 @@
+
+*{font-family:"微软雅黑";}
+body{
+	background:#eee\9!important;				
+	margin: 0px auto;overflow: hidden;text-align:center;
+	font-family:Monospace;
+	font-size:13px;
+	font-weight: bold;	
+	background-image: -webkit-gradient(linear, left top, right bottom, from(#fff), to(#ddd));
+}
+a {	color:#668;text-decoration:none;}
+
+.msg{width: 380px;background:#fcc;color: #f33;border: 1px dashed #f88;padding: 10px;margin:-240px 0 0 -200px;
+position: absolute;left: 50%;top: 50%;
+}
+.loginbox{
+	color:#666;
+	position:absolute;
+	left:50%; top:45%; 
+	height:260px; width:400px;
+	background:#ccc;
+	margin:-150px 0 0 -200px;
+	overflow:hidden; 
+	border:1px solid #ccc;
+	border-radius:5px;
+	box-shadow:20px 20px 150px #888;
+
+	background:rgba(255, 255, 255, .6);
+	background:#fff\9 !important;
+	background-image: -webkit-gradient(linear,left top,right bottom,from(#fff), to(#ddd));
+	background-image: -webkit-linear-gradient(top, #fff, #ddd);
+	background-image: -moz-linear-gradient(top, #fff, #ddd);
+	background-image: -ms-linear-gradient(top, #fff, #ddd);
+	background-image: -o-linear-gradient(top, #fff, #ddd);
+	background-image: linear-gradient(top, #fff, #ddd);  
+}
+.loginbox .login{
+	-moz-transform: rotateZ(-45deg);
+	-webkit-transform: rotateZ(-45deg);
+	transform: rotateZ(-45deg);/*倾斜*/
+	width:150px;
+	margin:30px 0 0 -40px;
+	padding-left:10px;
+	float:left;
+	margin-top:10px\9;
+	color:#fff;
+	font-size:18px;
+	line-height:25px;
+	letter-spacing:1px;
+	font-weight:400;
+	background:rgba(0,0,0,0.3);
+	background:#ccc\9;
+}
+.loginbox h1{
+	font-size:20px;letter-spacing:5px;		
+	position:relative;
+	color:#666;
+	margin-top:30px;left:-40px;
+	margin-top:40px\9;left:20px\9;margin-bottom:-10px\9;
+	text-shadow:1px 1px 20px #fff;			
+	font-weight:400;
+}
+
+.loginbox .inputs {margin-top:10px;}
+.loginbox .inputs div {width:400px;margin-left:20px;}
+.loginbox .inputs div span
+{display:block;float:left;width:60px;line-height:30px;text-align:right;font-size:13px;}
+
+.loginbox .inputs div input{
+	display:block;float:left;				
+	background:rgba(255, 255, 255, .6);
+	color:#888;
+	background: #f1f1f1\9;
+	padding: 10px;
+	margin: 0 0 10px 10px;
+	width: 250px;
+
+	border: 1px solid #ccc;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+.loginbox .actions{margin: 30px 0 0 90px;}
+.loginbox #submit{
+	margin-right:20px;
+	float: left;
+	height: 35px;
+	padding: 0;
+	width: 120px;
+	cursor: pointer;
+	font-size:15px;
+
+	color: #eee; 
+	text-transform: uppercase; 
+	margin-top: 10px;
+	background-color: #18a5cc;
+	border: none;		
+	-webkit-transition: -webkit-box-shadow 0.3s linear;
+	-moz-border-radius: 4px; 
+	-webkit-border-radius: 4px;
+	border-radius: 4px; 
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#18a5cc), to(#0a85a8)); 
+	background: -moz-linear-gradient(25% 75% 90deg,#0a85a8, #18a5cc);
+}
+
+.loginbox #submit:hover,#submit:focus{
+	background:#6cf;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#18a5cc), to(#0a85a8)); 
+	background: -moz-linear-gradient(25% 75% 90deg,#0a85a8, #18a5cc);
+	box-shadow:1px 1px 20px #aaa;
+	font-weight:800;
+}	
+
+.loginbox #submit:active{
+	outline: none;   
+	 -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+	 -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+	 box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+}
